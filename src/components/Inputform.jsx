@@ -19,7 +19,6 @@ export const Inputform = ({taskList, setTaskList}) => {
         setInputText(e.target.value);
     }
 
-
     return (
         <div className='input-form'>
             <h2 className='title'>新規タスクの追加</h2>
