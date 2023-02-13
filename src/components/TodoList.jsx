@@ -1,6 +1,11 @@
 import React from 'react'
 
-export const TodoList = ({taskList, setTaskList}) => {
+export const TodoList = ({ taskList, setTaskList }) => {
+
+    const handleDelete = (id) => {
+        setTaskList(taskList.filter((task) => task.id !== id));
+    }
+
     return (
         <div className='todo-list'>
             <form className='form'>
@@ -19,11 +24,11 @@ export const TodoList = ({taskList, setTaskList}) => {
                 <tbody className='tbody'>
                     {taskList.map((task, index) => (
                         <tr className='row' key={index}>
-                            <td className='data'>{ index }</td>
+                            <td className='data'>{ task.id }</td>
                             <td className='data'>{ task.text }</td>
                             <td className='data'>
                                 <button className='button completeion'>完了</button>
-                                <button className='button delete'>削除</button>
+                                <button className='button delete' onClick={() => handleDelete(task.id)}>削除</button>
                             </td>
                         </tr>
                     ))}
