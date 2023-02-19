@@ -3,12 +3,15 @@ import React, { useState } from 'react'
 export const Inputform = ({taskList, setTaskList}) => {
 
     const [inputText, setInputText] = useState('');
+    const [taskId, setTaskId] = useState(0);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setTaskId(taskId + 1);
         setTaskList([
             ...taskList,
             {
+                id: taskId,
                 text: inputText,
                 state: '作業中'
             }
