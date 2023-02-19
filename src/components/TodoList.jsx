@@ -6,12 +6,19 @@ export const TodoList = ({ taskList, setTaskList }) => {
         setTaskList(taskList.filter((task) => task.id !== id));
     }
 
+    const handleChengeState = (index) => {
+        taskList[index].state = taskList[index].state === '作業中' ? '完了' : '作業中';
+        setTaskList([...taskList]);
+
+        console.log(taskList);
+    }
+
     return (
         <div className='todo-list'>
             <form className='form'>
-                <input className='input' type="radio" name="state" value="all" />すべて
-                <input className='input' type="radio" name="state" value="work" />作業中
-                <input className='input' type="radio" name="state" value="completion" />完了
+                <input className='input' type="radio" name="state" value="all"/>すべて
+                <input className='input' type="radio" name="state" value="work"/>作業中
+                <input className='input' type="radio" name="state" value="completion"/>完了
             </form>
             <table className='table'>
                 <thead className='thead'>
@@ -27,7 +34,7 @@ export const TodoList = ({ taskList, setTaskList }) => {
                             <td className='data'>{ task.id }</td>
                             <td className='data'>{ task.text }</td>
                             <td className='data'>
-                                <button className='button completeion'>完了</button>
+                                <button className='button completeion' onClick={() => handleChengeState(index)}>{ task.state }</button>
                                 <button className='button delete' onClick={() => handleDelete(task.id)}>削除</button>
                             </td>
                         </tr>
