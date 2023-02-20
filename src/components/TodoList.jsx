@@ -21,9 +21,9 @@ export const TodoList = ({ taskList, setTaskList }) => {
     return (
         <div className='todo-list'>
             <form className='form'>
-                <input className='input' type="radio" name="state" value="すべて" onClick={handleStateSearch} defaultChecked/>すべて
-                <input className='input' type="radio" name="state" value="作業中" onClick={handleStateSearch}/>作業中
-                <input className='input' type="radio" name="state" value="完了" onClick={handleStateSearch}/>完了
+                <input className='input' type="radio" name="state" value="すべて" onClick={handleStateSearch} checked={state === 'すべて'}/>すべて
+                <input className='input' type="radio" name="state" value="作業中" onClick={handleStateSearch} checked={state === '作業中'}/>作業中
+                <input className='input' type="radio" name="state" value="完了" onClick={handleStateSearch} checked={state === '完了'} />完了
             </form>
             <table className='table'>
                 <thead className='thead'>
