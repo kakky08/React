@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export const TodoList = ({ taskList, setTaskList }) => {
 
-    const [state, setState] = useState('すべて');
+    const [taskState, setTaskState] = useState('すべて');
 
     const handleDelete = (id) => {
         setTaskList(taskList.filter((task) => task.id !== id));
