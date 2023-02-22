@@ -15,15 +15,15 @@ export const TodoList = ({ taskList, setTaskList }) => {
     }
 
     const handleStateSearch = (e) => {
-        setState(e.target.value);
+        setTaskState(e.target.value);
     }
 
     return (
         <div className='todo-list'>
             <form className='form'>
-                <input className='input' type="radio" name="state" value="すべて" onClick={handleStateSearch} checked={state === 'すべて'}/>すべて
-                <input className='input' type="radio" name="state" value="作業中" onClick={handleStateSearch} checked={state === '作業中'}/>作業中
-                <input className='input' type="radio" name="state" value="完了" onClick={handleStateSearch} checked={state === '完了'} />完了
+                <input className='input' type="radio" name="state" value="すべて" onClick={handleStateSearch} checked={taskState === 'すべて'}/>すべて
+                <input className='input' type="radio" name="state" value="作業中" onClick={handleStateSearch} checked={taskState === '作業中'}/>作業中
+                <input className='input' type="radio" name="state" value="完了" onClick={handleStateSearch} checked={taskState === '完了'} />完了
             </form>
             <table className='table'>
                 <thead className='thead'>
@@ -34,7 +34,7 @@ export const TodoList = ({ taskList, setTaskList }) => {
                     </tr>
                 </thead>
                 <tbody className='tbody'>
-                    {taskList.filter(task => state === task.state || state === 'すべて').map((task, index) => (
+                    {taskList.filter(task => taskState === task.state || taskState === 'すべて').map((task, index) => (
                         <tr  className='row' key={index}>
                             <td className='data'>{ task.id }</td>
                             <td className='data'>{ task.text }</td>
